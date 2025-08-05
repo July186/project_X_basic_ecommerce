@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link href="../dist/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="bg-white fixed w-full z-50">
+      <!-- logo -->
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="../public/Home.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <span class="self-center text-2xl font-bold whitespace-nowrap" 5
+            >Cart<span class="text-[#001AFF]">Sale</span></span
+          >
+        </a>
+
+        <!-- burger dan cart -->
+        <div class="flex items-center gap-4 lg:hidden">
+          <!-- cart_mobile -->
+          <a href="../public/cart.html" class="">
+            <img src="../Asset/Cart.png" href="#" alt="" />
+          </a>
+
+          <img
+            id="avatarButtonMobile"
+            type="button"
+            data-dropdown-toggle="userButtonMobile"
+            data-dropdown-placement="bottom-start"
+            class="p-2.5 ps-2 rounded-full cursor-pointer"
+            src="../Asset/Profile.png"
+            alt="User dropdown"
+          />
+
+          <!-- Dropdown menu -->
+          <div
+            id="userButtonMobile"
+            class="z-10 hidden divide-y bg-white divide-gray-100 rounded-lg shadow-sm w-44"
+          >
+            <div class="px-4 py-3 text-sm">
+              <div>Jane</div>
+              <div class="font-medium truncate">User_123</div>
+            </div>
+            <div class="py-1">
+              <a
+                href="../public/landing.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >Sign out</a
+              >
+            </div>
+          </div>
+
+          <button
+            data-collapse-toggle="navbar-default"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm font-medium text-gray-500 rounded-lg hover:bg-[#d9d8d8]"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- menulist -->
+        <div
+          class="hidden justify-center items-center w-full lg:block lg:w-auto p-2 lg:pr-20"
+          id="navbar-default"
+        >
+          <!-- search_mobile -->
+          <div class="relative mt-3 lg:hidden">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+            >
+              <img src="../Asset/Search.png" alt="" />
+            </div>
+            <input
+              type="text"
+              id="search-navbar"
+              class="block w-full p-2.5 ps-11 text-sm text-[#828282] rounded-lg bg-[#dadada]"
+              placeholder="Search..."
+            />
+          </div>
+
+          <ul
+            class="font-semibold flex flex-col p-4 lg:p-0 mt-4 rounded-lg lg:flex-row lg:space-x-8 rtl:space-x-reverse md:mt-0 lg:border-0 bg-[#EEE7E7] md:bg-white"
+          >
+            <li>
+              <a
+                href="../public/Home.html"
+                class="block py-2 px-3 rounded-sm lg:hover:bg-transparent lg:border-0 lg:p-0 hover:text-white lg:hover:text-inherit hover:bg-[#9F9F9F]"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 rounded-sm lg:hover:bg-transparent lg:border-0 lg:p-0 hover:text-white lg:hover:text-inherit hover:bg-[#9F9F9F]"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 rounded-sm lg:hover:bg-transparent lg:border-0 lg:p-0 hover:text-white lg:hover:text-inherit hover:bg-[#9F9F9F]"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 rounded-sm lg:hover:bg-transparent lg:border-0 lg:p-0 hover:text-white lg:hover:text-inherit hover:bg-[#9F9F9F]"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 rounded-sm lg:hover:bg-transparent lg:border-0 lg:p-0 hover:text-white lg:hover:text-inherit hover:bg-[#9F9F9F]"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- search -->
+        <div class="relative hidden lg:block">
+          <div
+            class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+          >
+            <img src="../Asset/Search.png" alt="" />
+          </div>
+          <input
+            type="text"
+            id="search-navbar"
+            class="block w-full lg:w-64 p-2.5 ps-11 text-sm text-[#828282] rounded-lg bg-[#dadada]"
+            placeholder="Search..."
+          />
+        </div>
+
+        <!-- cart -->
+        <div class="hidden lg:block lg:w-auto" id="navbar-default">
+          <ul
+            class="flex flex-col p-4 lg:p-0 mt-4 lg:flex-row lg:space-x-4 rtl:space-x-reverse lg:mt-0 lg:border-0 bg-[#EEE7E7] lg:bg-white"
+          >
+            <li>
+              <a href="./cart.html"
+                ><img src="../Asset/Cart.png" alt="" class="p-2.5 ps-2"
+              /></a>
+            </li>
+            <li>
+              <img
+                id="avatarButton"
+                type="button"
+                data-dropdown-toggle="userDropdown"
+                data-dropdown-placement="bottom-start"
+                class="p-2.5 ps-2 rounded-full cursor-pointer"
+                src="../Asset/Profile.png"
+                alt="User dropdown"
+              />
+
+              <!-- Dropdown menu -->
+              <div
+                id="userDropdown"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44"
+              >
+                <div class="px-4 py-3 text-sm">
+                  <div>Jane</div>
+                  <div class="font-medium truncate">User_123</div>
+                </div>
+                <div class="py-1">
+                  <a
+                    href="../public/landing.html"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >Sign out</a
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="flex justify-center items-center pt-32 mb-8">
+      <div class="w-full max-w-[85rem] p-6">
+        <div class="font-bold text-4xl">
+          <h1>Cart</h1>
+        </div>
+
+        <div class="relative overflow-x-auto mt-8 mb-8 no-scrollbar">
+          <table class="w-full text-left rtl:text-right">
+            <thead class="text-xl border-t-2 border-b-2 p-10">
+              <tr>
+                <th scope="col" class="px-6 py-3">Remove</th>
+                <th scope="col" class="px-6 py-3">Select</th>
+                <th scope="col" class="px-6 py-3">Image</th>
+                <th scope="col" class="px-6 py-3">Product</th>
+                <th scope="col" class="px-6 py-3">Price</th>
+                <th scope="col" class="px-6 py-3">Quantity</th>
+                <th scope="col" class="px-6 py-3">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="Product-Detail"></tbody>
+          </table>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+          <div class="p-8 p-x-10 border-2 border-[#B7B7B7] rounded-md">
+            <h1 class="font-bold text-2xl">Carts Totals</h1>
+
+            <div class="mt-4">
+              <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right">
+                  <tbody>
+                    <!-- Inside the table -->
+                    <tr class="bg-white border-b-2 border-[#B7B7B7]">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium whitespace-nowrap"
+                      >
+                        Cart Subtotal
+                      </th>
+                      <td id="cart-subtotal" class="px-6 py-4"></td>
+                    </tr>
+                    <tr class="bg-white border-b-2 border-[#B7B7B7]">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium whitespace-nowrap"
+                      >
+                        Shipping
+                      </th>
+                      <td id="shipping" class="px-6 py-4"></td>
+                    </tr>
+
+                    <tr class="bg-white border-b-2 border-[#B7B7B7]">
+                      <th
+                        scope="row"
+                        class="px-6 py-4 font-medium whitespace-nowrap"
+                      >
+                        Total
+                      </th>
+                      <td id="total" class="px-6 py-4"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <button
+                id="Proceed-Checkout"
+                class="p-3 px-5 rounded-md bg-black text-white cursor-pointer"
+              >
+                Proceed to Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-white px-10 py-20 border-t-2 border-[#B7B7B7]">
+      <div
+        class="max-w-7xl mx-auto flex flex-wrap justify-between space-y-10 lg:space-y-0"
+      >
+        <!-- Logo & Contact -->
+        <div class="space-y-5 max-w-xs">
+          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span class="self-center text-2xl font-bold whitespace-nowrap"
+              >Cart<span class="text-[#001AFF]">Sale</span></span
+            >
+          </a>
+          <div class="font-semibold">
+            <p class="font-semibold">Contact</p>
+            <p class="">Email Address : Cart_sale@gmail.com</p>
+            <p class="">Phone : +62 1230 2321 2134</p>
+          </div>
+          <div>
+            <p class="font-semibold">Follow Us</p>
+            <div class="flex space-x-4 pt-2 text-xl">
+              <a href="#">
+                <i class="fab fa-facebook-f">
+                  <img src="../Asset/facebook.png" alt="" />
+                </i>
+              </a>
+              <a href="#">
+                <i class="">
+                  <img src="../Asset/IG.png" alt="" />
+                </i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram">
+                  <img src="../Asset/Pinterest.png" alt="" />
+                </i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- About -->
+        <div class="space-y-2">
+          <h4 class="font-semibold mb-4">About</h4>
+          <ul class="space-y-2 font-medium">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Help -->
+        <div class="space-y-2">
+          <h4 class="font-semibold mb-4">Help</h4>
+          <ul class="space-y-2 font-medium">
+            <li>
+              <a href="#">Customer Service</a>
+            </li>
+            <li>
+              <a href="#">My Account</a>
+            </li>
+            <li>
+              <a href="#">Privacy police</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Payment Gateways -->
+        <div class="space-y-4">
+          <h4 class="font-semibold mb-4">Payment Gateways</h4>
+          <div class="flex space-x-3 mt-2">
+            <img src="../Asset/visa.png" alt="Visa" />
+            <img src="../Asset/mastercard.png" alt="Maestro" />
+            <img src="../Asset/paypal.png" alt="paypal" />
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-sm mt-10">© 2025 CartSale</p>
+    </footer>
+
+    <script src="../js/cart.js"></script>
+    <!--Flowbite-->
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+  </body>
+</html>
