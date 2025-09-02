@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CartSale - Solusi Deployment</title>
+    <style>
+        :root {
+            --primary-color: #001AFF;
+            --secondary-color: #B7B7B7;
+            --text-color: #333;
+            --background-color: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .problems-grid, .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .problem-card, .solution-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+        
+        .problem-card h3, .solution-card h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+        
+        .solution-card h3 {
+            color: #27ae60;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+        
+        .important-note {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">Cart<span>Sale</span></div>
+                <ul class="nav-links">
+                    <li><a href="#masalah">Masalah</a></li>
+                    <li><a href="#solusi">Solusi</a></li>
+                    <li><a href="#implementasi">Implementasi</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Solusi Masalah Deployment Vercel</h1>
+            <p>Memperbaiki masalah path, asset, dan routing pada website CartSale</p>
+        </div>
+    </section>
+
+    <section id="masalah" class="section">
+        <div class="container">
+            <h2 class="section-title">Masalah yang Ditemukan</h2>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>Path Asset Tidak Konsisten</h3>
+                    <p>Beberapa file menggunakan path absolut (<code>/Asset/...</code>) dan lainnya menggunakan path relatif (<code>../Asset/...</code>).</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>Halaman Detail Produk Tidak Tampil</h3>
+                    <p>Kemungkinan masalah dengan routing parameter ID atau path yang salah.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>Link Register/Login Tidak Berfungsi</h3>
+                    <p>Ada perbedaan path antara file JS dan HTML untuk halaman register/login.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>Asset Tidak Konsisten Antar Halaman</h3>
+                    <p>Beberapa asset tampil di halaman home tapi tidak di halaman cart.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solusi" class="section">
+        <div class="container">
+            <h2 class="section-title">Solusi yang Direkomendasikan</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <h3>Gunakan Path Relatif yang Konsisten</h3>
+                    <p>Pastikan semua path asset menggunakan format yang sama. Disarankan menggunakan path relatif terhadap root.</p>
+                    <div class="code-block">
+                        // Contoh path yang benar<br>
+                        &lt;img src="/assets/images/logo.png" alt="Logo"&gt;<br>
+                        &lt;script src="/js/script.js"&gt;&lt;/script&gt;
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <h3>Perbaiki Routing Detail Produk</h3>
+                    <p>Pastikan parameter ID terbaca dengan benar dan endpoint API dapat diakses.</p>
+                    <div class="code-block">
+                        // Pada DetailProduk.js<br>
+                        const urlParams = new URLSearchParams(window.location.search);<br>
+                        const productId = urlParams.get("id");<br>
+                        <br>
+                        if (productId) {<br>
+                        &nbsp;&nbsp;detailcontainer(productId);<br>
+                        } else {<br>
+                        &nbsp;&nbsp;console.error("Product ID not found in URL");<br>
+                        }
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <h3>Perbaiki Link antar Halaman</h3>
+                    <p>Pastikan link register/login mengarah ke path yang benar dan konsisten.</p>
+                    <div class="code-block">
+                        // Contoh link yang konsisten<br>
+                        &lt;a href="/login.html"&gt;Login&lt;/a&gt;<br>
+                        &lt;a href="/register.html"&gt;Register&lt;/a&gt;
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <h3>Struktur Folder yang Jelas</h3>
+                    <p>Buat struktur folder yang terorganisir untuk memudahkan management asset.</p>
+                    <div class="code-block">
+                        /<br>
+                        ├── index.html<br>
+                        ├── home.html<br>
+                        ├── cart.html<br>
+                        ├── detail-produk.html<br>
+                        ├── checkout.html<br>
+                        ├── login.html<br>
+                        ├── register.html<br>
+                        ├── /assets<br>
+                        │   ├── /images<br>
+                        │   ├── /icons<br>
+                        │   └── /css<br>
+                        └── /js<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="implementasi" class="section">
+        <div class="container">
+            <h2 class="section-title">Implementasi pada Vercel</h2>
+            
+            <div class="important-note">
+                <h3>Penting untuk Deployment di Vercel:</h3>
+                <p>1. Pastikan Anda memiliki file <code>vercel.json</code> untuk konfigurasi routing</p>
+                <p>2. Gunakan path absolut dengan awalan "/" untuk semua asset</p>
+                <p>3. Pastikan semua file HTML memiliki struktur yang konsisten</p>
+            </div>
+            
+            <h3>Contoh vercel.json:</h3>
+            <div class="code-block">
+                {<br>
+                &nbsp;&nbsp;"routes": [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{ "handle": "filesystem" },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{ "src": "/(.*)", "dest": "/index.html" }<br>
+                &nbsp;&nbsp;],<br>
+                &nbsp;&nbsp;"rewrites": [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{ "source": "/home", "destination": "/home.html" },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{ "source": "/cart", "destination": "/cart.html" },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;{ "source": "/product/:id", "destination": "/detail-produk.html" }<br>
+                &nbsp;&nbsp;]<br>
+                }
+            </div>
+            
+            <h3>Contoh Perbaikan Path pada Home.js:</h3>
+            <div class="code-block">
+                // Ganti path relatif dengan absolut<br>
+                // Dari:<br>
+                &lt;a href="detail-produk.html?id=${post.id}"&gt;<br>
+                &lt;img src="${post.image}" alt="${post.title}" class="w-full h-44 object-contain mb-4 mt-4" /&gt;<br>
+                <br>
+                // Menjadi:<br>
+                &lt;a href="/detail-produk.html?id=${post.id}"&gt;<br>
+                &lt;img src="${post.image}" alt="${post.title}" class="w-full h-44 object-contain mb-4 mt-4" /&gt;
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 CartSale - Solusi Deployment Vercel</p>
+        </div>
+    </footer>
+</body>
+</html>
