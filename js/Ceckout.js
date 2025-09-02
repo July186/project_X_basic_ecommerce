@@ -91,7 +91,7 @@ function displayOrderItems() {
             value="${productNotes[item.id] || ''}"
           >
           <div class="absolute inset-y-0 left-4 flex items-center">
-            <img src="../asset/note.png" alt="Note" class="w-5 h-5">
+            <img src="/asset/note.png" alt="Note" class="w-5 h-5">
           </div>
         </form>
       </div>
@@ -212,5 +212,5 @@ function placeOrder() {
   localStorage.removeItem("productNotes");
   
   // Arahkan pengguna ke halaman utama
-  window.location.href = "Home.html";
+  window.location.href = "/Home.html";
 }

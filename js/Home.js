@@ -11,7 +11,7 @@ async function ambil_data() {
             const postElement = document.createElement("div");
             postElement.className = " border-2 border-[#B7B7B7] rounded-md p-8 w-full h-full";
             postElement.innerHTML = `
-            <a href="Detail-produk.html?id=${post.id}">\
+            <a href="detail-produk.html?id=${post.id}">\
             <img src="${post.image}" alt="${post.title}" class="w-full h-44 object-contain mb-4 mt-4" />
             <h2 class="text-xl font-semibold mb-1 truncate">${post.title}</h2>
             <h3 class="text-xl font-bold mb-2">$${post.price}</h3>
@@ -25,7 +25,7 @@ async function ambil_data() {
             const postElement = document.createElement("div");
             postElement.className = " border-2 border-[#B7B7B7] rounded-md p-8 w-full h-full";
             postElement.innerHTML = `
-            <a href="Detail-produk.html?id=${post.id}">\
+            <a href="detail-produk.html?id=${post.id}">\
             <img src="${post.image}" alt="${post.title}" class="w-full h-44 object-contain mb-4 mt-4" />
             <h2 class="text-xl font-semibold mb-1 truncate">${post.title}</h2>
             <h3 class="text-xl font-bold mb-2">$${post.price}</h3>
